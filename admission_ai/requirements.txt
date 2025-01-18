@@ -1,0 +1,16 @@
+Flask==3.0.0
+SQLAlchemy==2.0.25
+openai==1.9.0
+twilio==8.10.3
+pytest==8.0.0
+python-dotenv==1.0.0
+PyYAML==6.0.1
+requests==2.31.0
+python-jose==3.3.0  # For JWT tokens
+passlib==1.7.4  # For password hashing
+Flask-SQLAlchemy==3.1.1
+Flask-Session==0.5.0
+psycopg2-binary==2.9.9  # PostgreSQL adapter
+Flask-Mail==0.9.1  # For email functionality
+pytest-cov==4.1.0  # For test coverage
+black==23.12.1  # For code formatting

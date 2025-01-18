@@ -1,0 +1,15 @@
+tasks:
+  recommend_universities:
+    description: "Analizează preferințele candidatului și recomandă 3 universități potrivite."
+    expected_output: "O listă cu 3 universități europene de medicină și detaliile lor."
+    agent: academic_advisor
+
+  prepare_documents:
+    description: "Verifică cerințele de admitere și ajută candidatul să își redacteze documentele necesare."
+    expected_output: "Un ghid detaliat pentru scrisoarea de motivație și un șablon de CV."
+    agent: documentation_specialist
+
+  study_plan:
+    description: "Identifică testele necesare pentru admitere și creează un plan de studiu personalizat."
+    expected_output: "Un plan de studiu de 3 luni cu resurse și teste de antrenament."
+    agent: exam_coach
