@@ -1,0 +1,231 @@
+Dacă spre exemplu am un proiect. Consiliere automatizată pentru admitere la universități de medicină din Europa, Automatizează procesul de consiliere
+        ◦ Agenți AI specializați în diferite aspecte ale admiterii (cerințe, pregătire, documentație, interviuri).
+        ◦ Oferă recomandări personalizate pentru fiecare candidat.
+    2. Colectează și analizează informații despre universități
+        ◦ Caută automat cerințele și taxele pentru fiecare facultate.
+        ◦ Compară diferite opțiuni și generează un raport personalizat.
+    3. Ghidează candidații pas cu pas
+        ◦ Creează un plan de admitere personalizat.
+        ◦ Sugerează materiale de studiu pentru examene.
+        ◦ Oferă feedback asupra scrisorii de motivație și CV-ului.
+    4. Interacțiune inteligentă
+        ◦ Agenții pot conversa cu utilizatorul pentru a clarifica nevoile și preferințele acestuia.
+        ◦ Pot răspunde la întrebări frecvente și oferi suport continuu.
+
+Cum ar arăta echipa de agenți AI?
+1️⃣ Agent: Consilier Academic
+    • Rol: Experiență vastă în admiterea la universități europene de medicină.
+    • Obiectiv: Recomandă universități potrivite bazate pe preferințele candidatului.
+    • Sarcini:
+        ◦ Analizează universitățile disponibile.
+        ◦ Verifică cerințele academice pentru fiecare țară/universitate.
+        ◦ Recomandă cea mai potrivită facultate în funcție de profilul candidatului.
+2️⃣ Agent: Specialist în Documentație
+    • Rol: Expert în întocmirea aplicațiilor pentru admitere.
+    • Obiectiv: Ajută candidații să pregătească documentele necesare (CV, scrisoare de intenție, recomandări).
+    • Sarcini:
+        ◦ Verifică ce documente sunt necesare pentru fiecare universitate.
+        ◦ Oferă feedback asupra scrisorii de motivație.
+        ◦ Ajută la redactarea unui CV academic convingător.
+3️⃣ Agent: Consultant pentru Examene de Admitere
+    • Rol: Ajută candidații să se pregătească pentru examenele de admitere.
+    • Obiectiv: Sugerează resurse de studiu și oferă simulări de teste.
+    • Sarcini:
+        ◦ Identifică tipurile de teste cerute de universități.
+        ◦ Recomandă cărți, cursuri și teste online relevante.
+        ◦ Simulează întrebări de interviu pentru admitere.
+ Aș vrea să generezi proiectul în primă fază să generezi script.pa și requirements.txt apoi să vedem cum ar arăta fișierele din structura proiectului.
+
+academic_advisor: role: "Consilier Academic" goal: "Recomandă cele mai bune universități europene de medicină pentru fiecare candidat" backstory: > Expert în procesul de admitere la universități de medicină, având experiență în ghidarea studenților internaționali. verbose: true documentation_specialist: role: "Specialist în Documentație" goal: "Ajută candidații să pregătească documentele necesare pentru admitere" backstory: > Un consultant experimentat în redactarea aplicațiilor pentru facultăți de medicină. verbose: true exam_coach: role: "Consultant pentru Examene de Admitere" goal: "Pregătește candidații pentru examenele de admitere la medicină" backstory: > Un expert în testele de admitere care oferă resurse și simulări pentru studenți. verbose: true
+
+recommend_universities: description: "Analizează preferințele candidatului și recomandă 3 universități potrivite." expected_output: "O listă cu 3 universități europene de medicină și detaliile lor." agent: academic_advisor prepare_documents: description: "Verifică cerințele de admitere și ajută candidatul să își redacteze documentele necesare." expected_output: "Un ghid detaliat pentru scrisoarea de motivație și un șablon de CV." agent: documentation_specialist study_plan: description: "Identifică testele necesare pentru admitere și creează un plan de studiu personalizat." expected_output: "Un plan de studiu de 3 luni cu resurse și teste de antrenament." agent: exam_coach
+
+Rulezi Proiectul?
+1️⃣ Instalează toate dependințele:
+bash
+CopyEdit
+pip install -r requirements.txt
+2️⃣ Rulează serverul Flask:
+bash
+CopyEdit
+python src/app.py
+3️⃣ Accesează aplicația în browser:
+    • Formular: http://127.0.0.1:5000/
+    • Istoric utilizatori: http://127.0.0.1:5000/history
+Ma interesează un chatbot AI interactiv care să aibă și un director cu o documentație personalizată în interacțiunea cu candidații. În același timp am nevoie de 2 agenți AI voice care să răspundă la telefon și să ofere informații voice. Al 3lea canal să fie pe whatsapp chatbot unde să interacționeze text to text sau voice to voice. Toate aceste interacțiuni să fie stocate într-un-un CRM compatibil cu Salesforce API și să genereze răspunsuri prin E-mail.
+
+Vom construi o platformă AI completă care oferă asistență pentru admiterea la universități de medicină prin:
+✅ Chatbot AI Interactiv (Web + WhatsApp + Voice)
+✅ Agenți AI Voice pentru Call Center
+✅ Integrare cu Salesforce API pentru CRM
+✅ E-mail Automatizat cu Recomandări
+✅ Director de Documentație Personalizată
+
+1️⃣ Arhitectura Soluției
+🟢 Frontend (Interfață Web & WhatsApp & Email)
+    • Chatbot AI pe site web
+    • WhatsApp bot (text și voice)
+    • Call Center AI (agenți voice care răspund la telefon)
+🟠 Backend (CrewAI & CRM & E-mailing)
+    • Agenți AI CrewAI care procesează cereri
+    • Stocare conversații în Salesforce CRM
+    • Trimitere e-mailuri automate
+🔵 Unelte Necesare
+📌 Flask pentru API web
+📌 Twilio pentru Voice AI & WhatsApp
+📌 OpenAI pentru GPT AI Responses
+📌 Salesforce API pentru CRM
+📌 LangChain pentru documentație personalizată
+
+2️⃣ Implementare Chatbot AI pe Web
+Vom folosi Flask + OpenAI pentru un chatbot care răspunde la întrebările utilizatorilor.
+Implementare WhatsApp Bot AI
+Vom folosi Twilio WhatsApp API pentru chatbot-ul de WhatsApp.
+
+Implementare AI Voice Bot pentru Call Center
+Folosim Twilio Voice API pentru a permite agenților AI să răspundă la apeluri.
+Integrarea CRM Salesforce pentru Stocarea Conversațiilor
+Generare de Răspunsuri prin E-mail
+Adăugarea unui Director cu Documentație Personalizată
+Folosim LangChain + LlamaIndex pentru căutare inteligentă în documentația universităților.
+
+Plan pentru Integrarea Suportului cu Agenți Umani
+Pentru a oferi o experiență completă utilizatorilor, vom adăuga chat live cu agenți umani ca alternativă la AI.
+Soluția va include:
+✅ Bot AI care decide dacă predă conversația unui agent uman
+✅ Integrare cu WebSocket pentru chat real-time
+✅ Dashboard pentru agenți umani
+✅ Stocarea conversațiilor în Salesforce CRM
+
+rhitectura Soluției
+🔹 Utilizatorul începe cu Chatbot AI
+🔹 Dacă AI nu poate răspunde, predă conversația unui agent uman
+🔹 Comunicarea este gestionată prin WebSockets
+🔹 Agenții umani pot răspunde dintr-un dashboard web
+🔹 Toate conversațiile sunt stocate în Salesforce CRM
+
+2️⃣ Instalare WebSocket pentru Chat Live
+Vom folosi Flask-SocketIO pentru comunicare în timp real.
+
+✅ Acest cod gestionează interacțiunea dintre utilizatori, AI și agenți umani.
+✅ Dacă AI nu poate răspunde, un agent uman preia chatul!
+
+Chatul Live?
+1️⃣ Rulează Serverul WebSocket:
+bash
+CopyEdit
+python src/chat_server.py
+2️⃣ Accesează Chat-ul:
+    • Utilizatori: http://127.0.0.1:5003/
+    • Agenți: http://127.0.0.1:5003/agent_dashboard.html
+Plan pentru Suport Video Call între Agenți și Utilizatori
+Pentru a permite apeluri video între utilizatori și agenții umani, vom folosi WebRTC împreună cu Flask-SocketIO.
+✅ Video Call Direct din Browser
+✅ Integrare cu Chat-ul AI și Agenții Umani
+✅ Stocare apeluri în Salesforce CRM
+✅ Dashboard pentru Agenți cu Monitorizare Apeluri
+
+1️⃣ Tehnologii Utilizate
+🔹 Flask-SocketIO → Gestionarea conexiunilor WebSocket
+🔹 WebRTC → Protocol pentru video streaming P2P
+🔹 Twilio Programmable Video (opțional) → Gestionare scalabilă a apelurilor
+🔹 Salesforce API → Salvarea istoricului apelurilor
+
+Plan pentru Integrarea Consimțământului GDPR și Înregistrarea Apelurilor în Salesforce CRM
+Pentru a respecta reglementările GDPR și a permite înregistrarea apelurilor cu consimțământul utilizatorilor, vom adăuga:
+✅ Dashboard pentru candidați unde își pot exprima consimțământul
+✅ Înregistrare apeluri și stocare în Salesforce CRM
+✅ Trimiterea unui e-mail de confirmare privind acordul GDPR
+✅ Gestionarea setărilor de confidențialitate pentru utilizatori
+
+Arhitectura Soluției
+🔹 Utilizatorul accesează Dashboard-ul GDPR
+    • Își exprimă consimțământul pentru înregistrarea apelurilor și stocarea datelor
+    • Acceptă sau refuză utilizarea datelor conform GDPR
+🔹 Dacă utilizatorul acceptă:
+    • Apelurile sunt înregistrate și stocate în Salesforce CRM
+    • Se trimite un e-mail de confirmare
+🔹 Dacă utilizatorul refuză:
+    • AI și agenții umani pot interacționa, dar fără înregistrare
+Plan pentru Implementarea Sistemului de Gestionare a Interacțiunii dintre Candidați, Universități și Admini
+Pentru a permite gestionarea completă a admiterii la universități de medicină, vom construi un sistem centralizat cu 4 tipuri de utilizatori:
+✅ 1. Candidatul → Poate depune documente, alege universități și acceptă GDPR
+✅ 2. Universitățile → Își administrează cerințele de admitere și procesează aplicanții
+✅ 3. Adminii (Master Account) → Gestionează utilizatorii și interacțiunile
+✅ 4. AI și Agenți Umani → Oferă suport și procesează cererile
+
+Arhitectura Sistemului
+🔹 Frontend (Interfețe Web pentru fiecare utilizator)
+    • Candidatul → Își creează cont, încarcă documente, alege universități
+    • Universitățile → Își gestionează profilul și cerințele de admitere
+    • Adminii → Supervizează activitățile și gestionează utilizatorii
+🔹 Backend (Flask & SQLAlchemy & Salesforce CRM)
+    • Autentificare și Gestionare Utilizatori (OAuth + JWT)
+    • Stocare documente personale și protecție GDPR
+    • CRM Salesforce pentru urmărirea progresului admiterii
+🔹 AI & Voice Integration
+    • Chatbot AI pentru informații despre universități
+    • Suport voice call AI pentru întrebări frecvente
+    • Video call între candidați și universități
+
+Plan pentru Implementarea Interviurilor Video pentru Admitere
+Vom adăuga două tipuri de interviuri video:
+✅ 1. Interviu de Acceptare → Un agent AI sau uman evaluează profilul candidatului
+✅ 2. Testarea Cunoștințelor → Examinarea pe camere video cu întrebări generate automat
+
+1️⃣ Arhitectura Soluției
+🔹 Candidatul → Se autentifică și participă la interviuri video
+🔹 Universitățile → Evaluează răspunsurile și oferă feedback
+🔹 Adminii → Monitorizează interviurile și decid acceptarea
+🔵 Tehnologii Folosite
+📌 WebRTC + Flask-SocketIO pentru video streaming
+📌 Twilio Video API (Opțional) pentru scalabilitate
+📌 OpenAI GPT-4 pentru generarea întrebărilor de test
+📌 Salesforce CRM pentru stocarea rezultatelor interviului
+
+2️⃣ Instalarea Dependențelor
+📌 Instalare Flask, WebRTC și OpenAI
+
+Plan Final: Verificare, Testare și Generare Proiect Complet
+✅ 1. Verificarea Structurii Fișierelor
+✅ 2. Implementarea Evaluării Automate AI a Răspunsurilor
+✅ 3. Crearea Testelor Unitare și Funcționale
+✅ 4. Rezolvarea Erorilor
+✅ 5. Generarea tuturor fișierelor pentru VS Code
+
+admission_ai/
+├── requirements.txt
+├── README.md
+├── config/
+│   ├── agents.yaml
+│   ├── tasks.yaml
+├── src/
+│   ├── app.py
+│   ├── auth.py
+│   ├── models.py
+│   ├── database.py
+│   ├── document_upload.py
+│   ├── university_portal.py
+│   ├── gdpr.py
+│   ├── salesforce.py
+│   ├── email_sender.py
+│   ├── chatbot.py
+│   ├── whatsapp_bot.py
+│   ├── voice_bot.py
+│   ├── video_interview_server.py
+│   ├── evaluation_ai.py  # Analiza AI a interviurilor
+│   ├── tests/
+│   │   ├── test_auth.py
+│   │   ├── test_document_upload.py
+│   │   ├── test_video_interview.py
+├── uploads/  # Folder pentru documente încărcate
+├── templates/
+│   ├── index.html
+│   ├── gdpr_dashboard.html
+│   ├── video_interview.html
+│   ├── university_dashboard.html
+│   ├── agent_dashboard.html
+│   ├── chat.html
+✅ Structura este clară, modularizată și organizată pentru extensibilitate.
+
+
